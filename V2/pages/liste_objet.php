@@ -28,9 +28,14 @@
                     <li></li>
                 </ul>
             </div>
+
+            <div>
+            <a href="membre.php" class="btn btn-success me-2">Membre</a>
+            </div>
+            
             <div class="d-flex">
                 <a href="ajout_objet.php" class="btn btn-success me-2">Ajouter un objet</a>
-        </div>
+            </div>
     </nav>
 
     <div class="container py-4">
@@ -65,6 +70,7 @@
                             <p class="card-text mb-1"><strong>Catégorie :</strong> <?php echo $objet['nom_categorie']; ?></p>
                             <p class="card-text mb-1"><strong>Membre :</strong> <?php echo $objet['nom']; ?></p>
                             <p class="card-text"><strong>Date de retour :</strong> <?php echo $objet['date_retour']; ?></p>
+                            <a href="fiche.php?id=<?php echo $objet['id_objet'] ?>"><button class="btn btn-secondary">fiche</button></a>
                         </div>
                     </div>
                 </div>

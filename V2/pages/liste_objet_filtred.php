@@ -24,6 +24,7 @@
                             <p class="card-text mb-1"><strong>Catégorie :</strong> <?php echo $obj['nom_categorie']; ?></p>
                             <p class="card-text mb-1"><strong>Membre :</strong> <?php echo $obj['nom']; ?></p>
                             <p class="card-text"><strong>Date de retour :</strong> <?php echo $obj['date_retour']; ?></p>
+                            <a href="fiche.php?id=<?php echo $obj['id_objet'] ?>"><button class="btn btn-secondary">fiche</button></a>
                         </div>
                     </div>
                 </div>

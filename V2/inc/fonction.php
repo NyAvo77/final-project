@@ -113,5 +113,55 @@
         mysqli_query(dbconnect(), $query);
     }
 
+    function get_user($mail)
+    {
+        $query = "SELECT * FROM emprunt_membre WHERE email='%s';";
+        $query = sprintf($query, $mail);
+        $result = mysqli_query(dbconnect(), $query);
+        $mety = mysqli_fetch_assoc($result);
+        return $mety;
+    }
+    
+    function get_fiche($id)
+    {
+        $query = "SELECT * FROM emprunt_objet
+            JOIN emprunt_emprunt ON emprunt_objet.id_objet = emprunt_emprunt.id_objet
+            JOIN emprunt_membre ON emprunt_emprunt.id_membre = emprunt_membre.id_membre
+            JOIN emprunt_categorie ON emprunt_objet.id_categorie = emprunt_categorie.id_categorie
+            WHERE emprunt_objet.id_objet='%s';";
+        $query=sprintf($query,$id);
+        $result = mysqli_query(dbconnect(), $query);
+        $objets = [];
 
+        while ($row = mysqli_fetch_assoc($result)) {
+            $objets[] = $row;
+        }
+        return $objets;
+    }
+
+    function get_membre(){
+        $query = "SELECT * FROM emprunt_membre";
+        $result = mysqli_query(dbconnect(), $query);
+        $membres = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $membres[] = $row;
+        }
+        return $membres;
+    }
+
+    function get_fiche_membre($id)
+    {
+        $query = "SELECT * FROM emprunt_membre JOIN emprunt_objet ON emprunt_membre.id_membre = emprunt_objet.id_membre
+        WHERE emprunt_membre.id_membre='%s';";
+        $query=sprintf($query,$id);
+        $result = mysqli_query(dbconnect(), $query);
+        $membres = [];
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $membres[] = $row;
+        }
+        return $membres;
+    }
+
+    
 ?>
