@@ -28,6 +28,8 @@
                     <li></li>
                 </ul>
             </div>
+            <div class="d-flex">
+                <a href="ajout_objet.php" class="btn btn-success me-2">Ajouter un objet</a>
         </div>
     </nav>
 

@@ -8,18 +8,17 @@
         mysqli_query(dbconnect(), $query);
     }
 
+
     function login($email, $mdp)
     {
         $query = "SELECT * FROM emprunt_membre WHERE email='%s' AND mdp='%s'";
         $query = sprintf($query, $email, $mdp);
         $result = mysqli_query(dbconnect(), $query);
-        
-        $row = mysqli_fetch_assoc($result);
 
-        if (isset($row)) {
-            return 1;
+        if ($result && mysqli_num_rows($result) > 0) {
+            return mysqli_fetch_assoc($result);
         } else {
-            return 0;
+            return false;
         }
     }
 
@@ -90,4 +89,29 @@
 
         return $row;
     }
+
+    function get_categorie_id($nom)
+    {
+        $query = "SELECT * FROM emprunt_categorie WHERE nom_categorie = '%s'";
+        $query = sprintf($query, $nom);
+        $result = mysqli_query(dbconnect(), $query);
+
+        return mysqli_fetch_assoc($result);
+    }
+    
+    function ajout_objet($nom_objet, $id_categorie, $id_membre)
+    {
+        $query = "INSERT INTO emprunt_objet (nom_objet, id_categorie, id_membre) VALUES ('%s', %d, %d)";
+        $query = sprintf($query, $nom_objet, $id_categorie, $id_membre);
+        mysqli_query(dbconnect(), $query);
+    }
+
+    function upload_image($image)
+    {
+        $query = "INSERT INTO emprunt_image (nom_image) VALUES ('%s')";
+        $query = sprintf($query, $image);
+        mysqli_query(dbconnect(), $query);
+    }
+
+
 ?>

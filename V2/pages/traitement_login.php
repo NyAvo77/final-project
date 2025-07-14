@@ -1,17 +1,22 @@
-<?php
-    include("../inc/fonction.php");
-    $mail=$_POST["email"];
-    $mdp=$_POST["mdp"];
 
-    $mailSess=login($mail, $mdp);
-    if($mailSess==1){
-        $_SESSION["mdp"]=$mdp;
-        $_SESSION["mail"]=$mail;
-        $_SESSION["id"]=get_id_by_mail($mail);
-        $_SESSION["nom"]=get_id_by_mail($mail);
+<?php
+    session_start();
+    include("../inc/fonction.php");
+    $mail = $_POST["email"];
+    $mdp = $_POST["mdp"];
+    $user = [];
+    $user = login($mail, $mdp);
+    if ($user) {
+        $_SESSION["mdp"] = $mdp;
+        $_SESSION["mail"] = $mail;
+        $_SESSION["id"] = $user["id_membre"];
+        $_SESSION["nom"] = $user["nom"];
         header("Location: liste_objet.php");
-    }else{
-        $_SESSION["erreur"]=$mailSess;
+        exit();
+    } else {
+        $_SESSION["erreur"] = "Identifiants incorrects";
         header("Location: login.php");
+        exit();
     }
+
 ?>
