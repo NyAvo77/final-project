@@ -2,42 +2,42 @@ create database emprunt;
 use emprunt;
 
 create table emprunt_membre(
-    id_membre INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(50) NOT NULL,
-    dtn DATE NOT NULL,
-    genre VARCHAR(10) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    ville VARCHAR(50) NOT NULL,
-    mdp VARCHAR(255) NOT NULL,
-    image_profil VARCHAR(255) NOT NULL
+    id_membre INT  AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) ,
+    dtn DATE ,
+    genre VARCHAR(10) ,
+    email VARCHAR(100) ,
+    ville VARCHAR(50) ,
+    mdp VARCHAR(255) ,
+    image_profil VARCHAR(255) 
 );
 
 create table emprunt_categorie(
-    id_categorie INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nom_categorie VARCHAR(50) NOT NULL
+    id_categorie INT  AUTO_INCREMENT PRIMARY KEY,
+    nom_categorie VARCHAR(50) 
 );
 
 create table emprunt_objet(
-    id_objet INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nom_objet VARCHAR(50) NOT NULL,
-    id_categorie INT NOT NULL,
-    id_membre INT NOT NULL,
+    id_objet INT  AUTO_INCREMENT PRIMARY KEY,
+    nom_objet VARCHAR(50) ,
+    id_categorie INT ,
+    id_membre INT ,
     FOREIGN KEY (id_categorie) REFERENCES emprunt_categorie(id_categorie)
 );
 
 create table emprunt_image_objet(
-    id_image INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    id_objet INT NOT NULL,
-    nom_image VARCHAR(255) NOT NULL,
+    id_image INT  AUTO_INCREMENT PRIMARY KEY,
+    id_objet INT ,
+    nom_image VARCHAR(255) ,
     FOREIGN KEY (id_objet) REFERENCES emprunt_objet(id_objet)
 );
 
 create table emprunt_emprunt(
-    id_emprunt INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    id_objet INT NOT NULL,
-    id_membre INT NOT NULL,
-    date_emprunt DATE NOT NULL,
-    date_retour DATE NOT NULL,
+    id_emprunt INT  AUTO_INCREMENT PRIMARY KEY,
+    id_objet INT ,
+    id_membre INT ,
+    date_emprunt DATE ,
+    date_retour DATE ,
     FOREIGN KEY (id_objet) REFERENCES emprunt_objet(id_objet),
     FOREIGN KEY (id_membre) REFERENCES emprunt_membre(id_membre)
 );
@@ -76,4 +76,3 @@ VALUES
   (9, 2, '2025-07-09', '2025-07-18'),
   (10, 3, '2025-07-10', '2025-07-19');
 
-CREATE OR REPLACE VIEW v_liste_objet AS
