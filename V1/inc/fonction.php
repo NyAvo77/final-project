@@ -18,16 +18,41 @@
 
     function get_objet()
     {
-        $query = "SELECT * FROM emprunt_objet JOIN emprunt_emprunt 
-        ON emprunt_objet.id = emprunt_emprunt.objet_id 
-        JOIN emprunt_membre
-        ON emprunt_emprunt.membre_id = emprunt_membre.id";
+        $query = "SELECT * FROM emprunt_objet
+            JOIN emprunt_emprunt ON emprunt_objet.id_objet = emprunt_emprunt.id_objet
+            JOIN emprunt_membre ON emprunt_emprunt.id_membre = emprunt_membre.id_membre
+            JOIN emprunt_categorie ON emprunt_objet.id_categorie = emprunt_categorie.id_categorie";
+            
+
         $result = mysqli_query(dbconnect(), $query);
         $objets = [];
         while ($row = mysqli_fetch_assoc($result)) {
             $objets[] = $row;
         }
         return $objets;
+    }
+
+    function get_categorie()
+    {
+        $query = "SELECT * FROM emprunt_categorie";
+        $result = mysqli_query(dbconnect(), $query);
+        $categories = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $categories[] = $row;
+        }
+        return $categories;
+    }
+    
+    function get_objet_filtred($id)
+    {
+        $query = "SELECT * FROM emprunt_objet
+            JOIN emprunt_emprunt ON emprunt_objet.id_objet = emprunt_emprunt.id_objet
+            JOIN emprunt_membre ON emprunt_emprunt.id_membre = emprunt_membre.id_membre
+            JOIN emprunt_categorie ON emprunt_objet.id_categorie = emprunt_categorie.id_categorie
+            WHERE emprunt_objet.id_objet = %d";
+        $query = sprintf($query, $id);
+        $result = mysqli_query(dbconnect(), $query);
+        return mysqli_fetch_assoc($result);
     }
 
 ?>
