@@ -1,6 +1,6 @@
 <?php 
-require("../inc/fonction.php");
-$objet = get_objet_filtred($_GET['id']);
+    require("../inc/fonction.php");
+    $objet = get_objet_filtred($_GET['categorie']);
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +11,25 @@ $objet = get_objet_filtred($_GET['id']);
     <title>Liste objet</title>
 </head>
 <body>
-    
+    <table>
+        <thead>
+            <tr>
+                <th>Nom de l'objet</th>
+                <th>Catégorie</th>
+                <th>Membre</th>
+                <th>Date de retour</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($objet as $objet): ?>
+                <tr>
+                    <td><?php echo $objet['nom_objet']; ?></td>
+                    <td><?php echo $objet['nom_categorie']; ?></td>
+                    <td><?php echo $objet['nom']; ?></td>
+                    <td><?php echo $objet['date_retour']; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </body>
 </html>

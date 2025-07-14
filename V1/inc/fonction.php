@@ -42,17 +42,28 @@
         }
         return $categories;
     }
-    
+
     function get_objet_filtred($id)
     {
-        $query = "SELECT * FROM emprunt_objet
+        if($id==0)
+        {
+            return get_objet();
+        }
+        else
+        {
+            $query = "SELECT * FROM emprunt_objet
             JOIN emprunt_emprunt ON emprunt_objet.id_objet = emprunt_emprunt.id_objet
             JOIN emprunt_membre ON emprunt_emprunt.id_membre = emprunt_membre.id_membre
             JOIN emprunt_categorie ON emprunt_objet.id_categorie = emprunt_categorie.id_categorie
-            WHERE emprunt_objet.id_objet = %d";
-        $query = sprintf($query, $id);
-        $result = mysqli_query(dbconnect(), $query);
-        return mysqli_fetch_assoc($result);
+            WHERE emprunt_objet.id_categorie = %d";
+            $query = sprintf($query, $id);
+            $result = mysqli_query(dbconnect(), $query);
+            $resultat = [];
+            while ($row = mysqli_fetch_assoc($result)) {
+                $resultat[] = $row;
+            }
+            return $resultat;
+        }
     }
 
 ?>

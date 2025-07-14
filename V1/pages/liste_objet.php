@@ -1,6 +1,7 @@
 <?php
-require("../inc/fonction.php");
-$objets = get_objet();
+    require("../inc/fonction.php");
+    $objets = get_objet();
+    $categories = get_categorie();
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +13,21 @@ $objets = get_objet();
 </head>
 <body>
     <h1>Liste des objets</h1>
+    <h2>Filtre </h2>
+    <form action="liste_objet_filtred.php" method="get">
+        <select name="categorie" id="categorie">
+            <option value="0">Tous</option>
+            <?php foreach ($categories as $categorie): ?>
+                <option value="<?php echo $categorie['id_categorie']; ?>"><?php echo $categorie['nom_categorie']; ?></option>
+            <?php endforeach; ?>
+        </select>
+        <input type="submit" value="Filtrer">
+    </form>
+
+    </select>
+    
+
+    <h2>Liste des objets</h2>
     <table>
         <thead>
             <tr>
