@@ -23,7 +23,7 @@
             </button>
             
             
-            <div>
+            <div class="d_flex">
                 <a href="membre.php" class="btn btn-success me-2">Membre</a>
             </div>
             
@@ -31,9 +31,15 @@
                 <a href="ajout_objet.php" class="btn btn-success me-2">Ajouter un objet</a>
             </div>
 
+            <div class="d_flex">
+                <a href="liste_emprunt.php" class="btn btn-success me-2">voir mes objets empruntes</a>
+            </div>
+
             <div class="d-flex">
                 <a href="deco.php" class="btn btn-danger me-2">Déconnexion</a>
             </div>
+
+
     </nav>
 
     <div class="container py-4">

@@ -184,10 +184,41 @@
         $date_emprunt = date('Y-m-d');
         $date_retour = date('Y-m-d', strtotime("+$nbjours days"));
 
-        // Insert into emprunt_emprunt table
         $query = "INSERT INTO emprunt_emprunt (id_objet, id_membre, date_emprunt, date_retour) VALUES (%d, %d, '%s', '%s')";
         $query = sprintf($query, $id_objet, $id_membre, $date_emprunt, $date_retour);
         mysqli_query(dbconnect(), $query);
     }
     
+    function check_emprunt($id)
+    {
+        $query = "SELECT * FROM emprunt_emprunt WHERE id_objet='%s' AND date_retour > NOW()";
+        $query = sprintf($query, $id);
+        $result = mysqli_query(dbconnect(), $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            return true; 
+        } else {
+            return false; 
+        }
+    }
+
+    function get_user_name($id)
+    {
+        $query = "SELECT nom FROM emprunt_membre WHERE id_membre='%s'";
+        $query = sprintf($query, $id);
+        $result = mysqli_query(dbconnect(), $query);
+        $valiny=mysqli_fetch_assoc($result);
+        return $valiny['nom'];
+    }
+
+    function rendre_objet($id_objet, $id_membre,$etat)
+    {
+        $query = "DELETE FROM emprunt_emprunt WHERE id_objet='%s' AND id_membre='%s'";
+        $query = sprintf($query, $id_objet, $id_membre);
+        mysqli_query(dbconnect(), $query);
+
+        $query = "INSERT INTO emprunt_etat(id_objet,etat) VALUES ('%s','%s')";
+        $query = sprintf($query, $id_objet, $etat); 
+        mysqli_query(dbconnect(), $query);
+    }
 ?>

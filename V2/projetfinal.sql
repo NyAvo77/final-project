@@ -76,3 +76,8 @@ VALUES
   (9, 2, '2025-07-09', '2025-07-18'),
   (10, 3, '2025-07-10', '2025-07-19');
 
+CREATE TABLE emprunt_etat (
+    id_objet INT,
+    etat VARCHAR(20),
+    FOREIGN KEY (id_objet) REFERENCES emprunt_objet(id_objet)
+);
