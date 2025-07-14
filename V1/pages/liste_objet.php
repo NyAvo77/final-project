@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
+    <nav>
+        <button><a href="ajout_objet.php">ajouter un objet</a></button>
+    </nav>
+
+    <main>
+
     <h1>Liste des objets</h1>
     <h2>Filtre </h2>
     <form action="liste_objet_filtred.php" method="get">
@@ -24,7 +30,6 @@
         </select>
         <input type="submit" value="Filtrer">
     </form>
-
     </select>
     
 
@@ -49,5 +54,8 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+
+    </main>
+
 </body>
 </html>
