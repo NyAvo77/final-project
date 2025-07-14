@@ -1,6 +1,4 @@
-<?php
-if (isset())
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +8,7 @@ if (isset())
     <title>Login</title>
 </head>
 <body>
-    <form action="login.php" method="post">
+    <form action="traitement_login.php" method="post">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
         <br>
@@ -19,5 +17,6 @@ if (isset())
         <br>
         <input type="submit" value="Se connecter">
     </form>
+    <p>Pas encore inscrit? <a href="inscription.php">Inscrivez-vous ici</a></p>
 </body>
 </html>

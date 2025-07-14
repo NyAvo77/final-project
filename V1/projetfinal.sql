@@ -41,3 +41,10 @@ create table emprunt_emprunt(
     FOREIGN KEY (id_objet) REFERENCES emprunt_objet(id_objet),
     FOREIGN KEY (id_membre) REFERENCES emprunt_membre(id_membre)
 );
+
+INSERT INTO emprunt_membre (nom, dtn, genre, email, ville, mdp)
+VALUES 
+  ( 'Marie','1995-03-15', 'Femme', 'marie@email.com', 'Paris', 'marie'),
+  ('Alice', '1990-05-12', 'Femme', 'alice@email.com', 'Paris', 'alice'),
+  ('Bob', '1985-11-23', 'Homme', 'bob@email.com', 'Lyon', 'bob'),
+  ('Claire', '1992-07-08', 'Femme', 'claire@email.com', 'Marseille', 'claire');
