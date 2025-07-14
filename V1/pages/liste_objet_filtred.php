@@ -32,5 +32,6 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+    <a href="liste_objet.php"><button class="btn btn-primary">Retour</button></a>
 </body>
 </html>
