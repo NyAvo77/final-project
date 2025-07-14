@@ -14,17 +14,17 @@ manao todo list
 -données à inserer
   4 membres #
   4 catégories
-  10 objets par membre à repartir sur les categories
-  10 emprunt 
+  10 objets par membre à repartir sur les categories #
+  10 emprunt #
 
--manao pages
+-manao pages # 
   -index #
   -login & inscription #
-  -liste des objets & date de retour si emprunt en court
-  -filtre par catégorie
+  -liste des objets & date de retour si emprunt en court # 
+  -filtre par catégorie #
 
--manao fonction 
+-manao fonction #
   -dbconnect #
-  -login/inscription
-  -get_objet
-  -get_objet_filtre
+  -login/inscription #
+  -get_objet #
+  -get_objet_filtre #
