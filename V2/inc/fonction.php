@@ -163,5 +163,31 @@
         return $membres;
     }
 
+    function get_emprunt($id)
+    {
+        $query = "SELECT * FROM emprunt_emprunt
+            JOIN emprunt_objet ON emprunt_emprunt.id_objet = emprunt_objet.id_objet
+            JOIN emprunt_membre ON emprunt_emprunt.id_membre = emprunt_membre.id_membre
+            WHERE emprunt_membre.id_membre='%s';";
+        $query=sprintf($query,$id);
+        $result = mysqli_query(dbconnect(), $query);
+        $emprunts = [];
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $emprunts[] = $row;
+        }
+        return $emprunts;
+    }
+    
+    function make_emprunt($id_objet, $id_membre, $nbjours)
+    {
+        $date_emprunt = date('Y-m-d');
+        $date_retour = date('Y-m-d', strtotime("+$nbjours days"));
+
+        // Insert into emprunt_emprunt table
+        $query = "INSERT INTO emprunt_emprunt (id_objet, id_membre, date_emprunt, date_retour) VALUES (%d, %d, '%s', '%s')";
+        $query = sprintf($query, $id_objet, $id_membre, $date_emprunt, $date_retour);
+        mysqli_query(dbconnect(), $query);
+    }
     
 ?>

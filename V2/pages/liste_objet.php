@@ -67,7 +67,11 @@
                             <h5 class="card-title"><?php echo $objet['nom_objet']; ?></h5>
                             <p class="card-text mb-1"><strong>Catégorie :</strong> <?php echo $objet['nom_categorie']; ?></p>
                             <p class="card-text mb-1"><strong>Membre :</strong> <?php echo $objet['nom']; ?></p>
-                            <p class="card-text"><strong>Date de retour :</strong> <?php echo $objet['date_retour']; ?></p>
+                            <?php if ($objet['date_retour'] > date('Y-m-d')){ ?>
+                                <p class="card-text"><strong>Disponible le :</strong> <?php echo $objet['date_retour']; ?></p>
+                            <?php } else { ?>
+                                <a href="emprunt.php?id=<?php echo $objet['id_objet'] ?>"><button class="btn btn-secondary">emprunter</button></a>
+                            <?php } ?>
                             <a href="fiche.php?id=<?php echo $objet['id_objet'] ?>"><button class="btn btn-secondary">fiche</button></a>
                         </div>
                     </div>
