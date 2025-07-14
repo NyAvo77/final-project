@@ -3,6 +3,7 @@
     $id=$_GET['id'] ;
 
     $membre=get_fiche_membre($id);
+    var_dump($membre);
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +19,6 @@
         <p>ID: <?php echo $membre['id_membre']; ?></p>
         <p>Nom: <?php echo $membre['nom']; ?></p>
         <p>Email: <?php echo $membre['email']; ?></p>
-        <p>Date d'inscription: <?php echo $membre['date_inscription']; ?></p>
     </div>
 </body>
 </html>

@@ -151,7 +151,7 @@
 
     function get_fiche_membre($id)
     {
-        $query = "SELECT * FROM emprunt_membre JOIN emprunt_objet ON emprunt_membre.id_membre = emprunt_objet.id_membre
+        $query = "SELECT * FROM emprunt_membre 
         WHERE emprunt_membre.id_membre='%s';";
         $query=sprintf($query,$id);
         $result = mysqli_query(dbconnect(), $query);
