@@ -1,0 +1,30 @@
+manao todo list
+
+-creer le repository git #
+-cloner le repository sur le PC # 
+
+-manao database
+ - creer les tables #
+  - emprunt_membre #
+  - emprunt_objet #
+  - emprunt_categorie_objet #
+  - emprunt_image_objet #
+  - emprunt_emprunt #
+
+-données à inserer
+  4 membres
+  4 catégories
+  10 objets par membre à repartir sur les categories
+  10 emprunt 
+
+-manao pages
+  -index
+  -login & inscription
+  -liste des objets & date de retour si emprunt en court
+  -filtre par catégorie
+
+-manao fonction 
+  -dbconnect #
+  -login/inscription
+  -get_objet
+  -get_objet_filtre
