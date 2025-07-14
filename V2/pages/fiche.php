@@ -3,6 +3,7 @@
     $id = $_GET['id'];
     $ob = get_fiche($id);
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

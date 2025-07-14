@@ -22,19 +22,17 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-
+            
             <div>
-            <a href="membre.php" class="btn btn-success me-2">Membre</a>
+                <a href="membre.php" class="btn btn-success me-2">Membre</a>
             </div>
             
             <div class="d-flex">
                 <a href="ajout_objet.php" class="btn btn-success me-2">Ajouter un objet</a>
+            </div>
+
+            <div class="d-flex">
+                <a href="deco.php" class="btn btn-danger me-2">Déconnexion</a>
             </div>
     </nav>
 

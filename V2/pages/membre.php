@@ -36,7 +36,7 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <a href="index.php" class="btn btn-secondary">Retour à l'accueil</a>
+        <a href="liste_objet.php" class="btn btn-secondary">Retour à l'accueil</a>
     </div>
 </body>
 </html>
